@@ -4,7 +4,7 @@
  <title>IVY</title>
  <link href="https://apanda.github.com/ivy/atom.xml" rel="self"/>
  <link href="https://apanda.github.com/ivy/"/>
- <updated>2016-02-14T16:13:49-08:00</updated>
+ <updated>2016-02-14T16:15:04-08:00</updated>
  <id>https://apanda.github.com/ivy</id>
  <author>
    <name>Oded Padon</name>
@@ -19,28 +19,24 @@
    <id>https://apanda.github.com/ivy/paper%20review/2015/10/11/elasticsearch-succinct</id>
    <content type="html">&lt;p&gt;ElasticSearch and Succinct use very different mechanisms to provide the ability to perform arbitrary search on large amounts of data. ElasticSearch relies on sharding and existing document search work by Apache Lucene to provide scalable search, while Succinct creates a compressed representation of the data that acts as an index for that data.&lt;/p&gt;
 
-&lt;h2&gt;Differences from Before&lt;/h2&gt;
-
+&lt;h2 id=&quot;differences-from-before&quot;&gt;Differences from Before&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;  The amount of data stored by companies etc. has been growing for a while, and there&amp;#39;s finally some question about what this data can be used for.&lt;/li&gt;
-&lt;li&gt;  As opposed to traditional relational databases, the data in these clusters is largely unstructured, comes with little or no schema and often requires string searches.&lt;/li&gt;
+  &lt;li&gt;The amount of data stored by companies etc. has been growing for a while, and there’s finally some question about what this data can be used for.&lt;/li&gt;
+  &lt;li&gt;As opposed to traditional relational databases, the data in these clusters is largely unstructured, comes with little or no schema and often requires string searches.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Insights&lt;/h2&gt;
-
-&lt;p&gt;One of the big insight for both works seems to be that string search is really all that matters. Given efficient string search, building other primitives is &amp;quot;simple&amp;quot;.&lt;/p&gt;
+&lt;h2 id=&quot;insights&quot;&gt;Insights&lt;/h2&gt;
+&lt;p&gt;One of the big insight for both works seems to be that string search is really all that matters. Given efficient string search, building other primitives is “simple”.&lt;/p&gt;
 
 &lt;p&gt;The other insight is the importance of indices, searching by scanning a file is not reasonable given enough data.&lt;/p&gt;
 
-&lt;h2&gt;Trade-Offs&lt;/h2&gt;
-
+&lt;h2 id=&quot;trade-offs&quot;&gt;Trade-Offs&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;  For ElasticSearch, while not mentioned, there is a tradeoff between how much space the indices take (i.e., how many shards are there) and how much queries can be distributed.&lt;/li&gt;
-&lt;li&gt;With Succinct there are two tradeoffs: (a) having the set of operations Succinct provides vs general operations, (b) compression ratio vs performance.&lt;/li&gt;
+  &lt;li&gt;For ElasticSearch, while not mentioned, there is a tradeoff between how much space the indices take (i.e., how many shards are there) and how much queries can be distributed.&lt;/li&gt;
+  &lt;li&gt;With Succinct there are two tradeoffs: (a) having the set of operations Succinct provides vs general operations, (b) compression ratio vs performance.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Impact in 10 years&lt;/h2&gt;
-
+&lt;h2 id=&quot;impact-in-10-years&quot;&gt;Impact in 10 years&lt;/h2&gt;
 &lt;p&gt;I think indices have survived for way more than 10 years already, so they will survive the next 10 too. I think the interesting question is whether text search of this kind will be what people stick with, e.g., it seems like adding schema to succinct might actually help with compression.&lt;/p&gt;
 </content>
  </entry>
@@ -53,36 +49,32 @@
    <content type="html">&lt;p&gt;Mesos, Yarn and Kubernates are all frameworks for sharing cluster resources among different applications and users. While all attempt to solve the same problem, each picks a slightly different place in the design space:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;  Mesos chooses to use a resource offer model, where frameworks (i.e., libraries/applications) have adapters that understand the Mesos resource model, know how to respond to resource offers and launch tasks based on these offers. Mesos assumes that task lengths are generally short.&lt;/li&gt;
-&lt;li&gt;  Yarn is similar to Mesos in requiring framework adapters (managers), but instead of using resource offers requires application managers to request resources. Task length is unclear. Seems to support both short and long lifetimes, as opposed to Mesos. Finally, of the three, Yarn is closely tied to a filesystem (HDFS) and does placement based on that.&lt;/li&gt;
-&lt;li&gt;  Finally, Kubernates provides a mechanism for allocating and running containers (lightweight VMs). The assumption is that containers are long lived (based on start times), and Kubernates provides mechanisms for placement (place containers on the same machine/close by, not locality based placement), load balancing between containers and name services. In general Kuberantes is much more general (no assumption of 2-level scheduling, etc.) but it solves a different problem.&lt;/li&gt;
+  &lt;li&gt;Mesos chooses to use a resource offer model, where frameworks (i.e., libraries/applications) have adapters that understand the Mesos resource model, know how to respond to resource offers and launch tasks based on these offers. Mesos assumes that task lengths are generally short.&lt;/li&gt;
+  &lt;li&gt;Yarn is similar to Mesos in requiring framework adapters (managers), but instead of using resource offers requires application managers to request resources. Task length is unclear. Seems to support both short and long lifetimes, as opposed to Mesos. Finally, of the three, Yarn is closely tied to a filesystem (HDFS) and does placement based on that.&lt;/li&gt;
+  &lt;li&gt;Finally, Kubernates provides a mechanism for allocating and running containers (lightweight VMs). The assumption is that containers are long lived (based on start times), and Kubernates provides mechanisms for placement (place containers on the same machine/close by, not locality based placement), load balancing between containers and name services. In general Kuberantes is much more general (no assumption of 2-level scheduling, etc.) but it solves a different problem.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Differences from Before&lt;/h2&gt;
-
+&lt;h2 id=&quot;differences-from-before&quot;&gt;Differences from Before&lt;/h2&gt;
 &lt;p&gt;All of these works started appearing once places other than Google, Microsoft, etc. started building larger clusters and running many applications. The hope was that managing resources in this way would provide greater efficiency than static partitioning, and would also simplify management.&lt;/p&gt;
 
-&lt;h2&gt;Insights&lt;/h2&gt;
-
+&lt;h2 id=&quot;insights&quot;&gt;Insights&lt;/h2&gt;
 &lt;p&gt;For Mesos and Yarn the key insight was&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;  Two level scheduling allows applications/framework placement requirements to be independent of resource requirements. This allowed the building of a central resource scheduler for many different kinds of jobs.&lt;/li&gt;
+  &lt;li&gt;Two level scheduling allows applications/framework placement requirements to be independent of resource requirements. This allowed the building of a central resource scheduler for many different kinds of jobs.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;For Kubernates this insight was extended a bit more: Not only can we separate framework task placement decisions from resource allocation, these two features do not need to be aware of each other: placement should only consider resource allocation. This simplifies the design greatly.&lt;/p&gt;
 
-&lt;h2&gt;Trade-Offs&lt;/h2&gt;
-
+&lt;h2 id=&quot;trade-offs&quot;&gt;Trade-Offs&lt;/h2&gt;
 &lt;p&gt;For Mesos and Yarn the tradeoff is guaranteed performance (when statically partitioning) vs high utilization.&lt;/p&gt;
 
 &lt;p&gt;For Kubernates the tradeoff is the standard virtualization tradeoff, lack of visibility might lead to suboptimal performance.&lt;/p&gt;
 
-&lt;h2&gt;Relevance in 10 years&lt;/h2&gt;
+&lt;h2 id=&quot;relevance-in-10-years&quot;&gt;Relevance in 10 years&lt;/h2&gt;
+&lt;p&gt;I think Kubernates or some extension will be relevant in 10 years, mostly because this is now Google Compute Engine’s preferred way of allocating machines. Also, lots of places do use VMs or containers, and one of the container frameworks must win.&lt;/p&gt;
 
-&lt;p&gt;I think Kubernates or some extension will be relevant in 10 years, mostly because this is now Google Compute Engine&amp;#39;s preferred way of allocating machines. Also, lots of places do use VMs or containers, and one of the container frameworks must win.&lt;/p&gt;
-
-&lt;p&gt;I am less sure about Mesos and Yarn. Note, Mesosphere&amp;#39;s version of Mesos is already a lot more like Kubernates, than what this paper presents. In general things like Mesos and Yarn seem to conflict with a world where we are going to multi-paradigm frameworks. Also, it is unclear how much fine grained resource management really helps in this case, if we are going to just coarse grained systems, then the Kuberantes way seems more promising.&lt;/p&gt;
+&lt;p&gt;I am less sure about Mesos and Yarn. Note, Mesosphere’s version of Mesos is already a lot more like Kubernates, than what this paper presents. In general things like Mesos and Yarn seem to conflict with a world where we are going to multi-paradigm frameworks. Also, it is unclear how much fine grained resource management really helps in this case, if we are going to just coarse grained systems, then the Kuberantes way seems more promising.&lt;/p&gt;
 </content>
  </entry>
  
@@ -93,30 +85,26 @@
    <id>https://apanda.github.com/ivy/paper%20review/2015/09/09/spark</id>
    <content type="html">&lt;p&gt;Spark builds a data parallel framework that is better suited to long, multi-stage and iterative jobs. This problem is real, fitting machine learning, SQL queries, etc. into MR (which is primarily optimized for two stages) has severe performance implications.&lt;/p&gt;
 
-&lt;h2&gt;Insights&lt;/h2&gt;
-
+&lt;h2 id=&quot;insights&quot;&gt;Insights&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;When using deterministic operations, tracking the order-of-operations is sufficient for fault tolerance (i.e., data processing frameworks do not need to track the results themselves).&lt;/li&gt;
-&lt;li&gt;If the results do not need to be saved (for fault tolerance), they can just be kept in memory, deserialized. This saves the rather high serialization cost across the many stages of a data parallel job thus improving performance.&lt;/li&gt;
-&lt;li&gt;Based on this the key insight in Spark is to use lineage for fault tolerance which both saves on the amount of data that needs to be made durable, and improver performance for multi-stage and iterative jobs.&lt;/li&gt;
+  &lt;li&gt;When using deterministic operations, tracking the order-of-operations is sufficient for fault tolerance (i.e., data processing frameworks do not need to track the results themselves).&lt;/li&gt;
+  &lt;li&gt;If the results do not need to be saved (for fault tolerance), they can just be kept in memory, deserialized. This saves the rather high serialization cost across the many stages of a data parallel job thus improving performance.&lt;/li&gt;
+  &lt;li&gt;Based on this the key insight in Spark is to use lineage for fault tolerance which both saves on the amount of data that needs to be made durable, and improver performance for multi-stage and iterative jobs.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Differences from Before&lt;/h2&gt;
-
+&lt;h2 id=&quot;differences-from-before&quot;&gt;Differences from Before&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Assumed that machine failures are rare (in small clusters), memory sizes are large, and data fits in memory. In this case lineage and keeping data in memory works well.&lt;/li&gt;
+  &lt;li&gt;Assumed that machine failures are rare (in small clusters), memory sizes are large, and data fits in memory. In this case lineage and keeping data in memory works well.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Trade-Offs&lt;/h2&gt;
-
+&lt;h2 id=&quot;trade-offs&quot;&gt;Trade-Offs&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;I think using lineage, without checkpointing, fundamentally assumes something about cluster size.&lt;/li&gt;
+  &lt;li&gt;I think using lineage, without checkpointing, fundamentally assumes something about cluster size.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Relevance in 10 years&lt;/h2&gt;
-
+&lt;h2 id=&quot;relevance-in-10-years&quot;&gt;Relevance in 10 years&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Spark seems pretty relevant now, at least from Berkeley&amp;#39;s lens, and I think will continue to be relevant in 10 years. However, the current version of Spark is a far cry from the version in the paper.&lt;/li&gt;
+  &lt;li&gt;Spark seems pretty relevant now, at least from Berkeley’s lens, and I think will continue to be relevant in 10 years. However, the current version of Spark is a far cry from the version in the paper.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>
@@ -128,38 +116,34 @@
    <id>https://apanda.github.com/ivy/paper%20review/2015/09/09/naiad</id>
    <content type="html">&lt;p&gt;Naiad looks at one way to construct an execution framework to support streaming and iteration in addition to batch processing.&lt;/p&gt;
 
-&lt;h2&gt;Differences from Before&lt;/h2&gt;
-
+&lt;h2 id=&quot;differences-from-before&quot;&gt;Differences from Before&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Compared to when Dryad was written, memory sized had increased. &lt;/li&gt;
-&lt;li&gt;Rise in the importance of low-latency streaming workflows meant that
-
-&lt;ul&gt;
-&lt;li&gt;Writing to disk at the end of every stage was not good enough.&lt;/li&gt;
-&lt;li&gt;Needed new execution mechanisms for streaming.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+  &lt;li&gt;Compared to when Dryad was written, memory sized had increased.&lt;/li&gt;
+  &lt;li&gt;Rise in the importance of low-latency streaming workflows meant that
+    &lt;ul&gt;
+      &lt;li&gt;Writing to disk at the end of every stage was not good enough.&lt;/li&gt;
+      &lt;li&gt;Needed new execution mechanisms for streaming.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Insights&lt;/h2&gt;
-
+&lt;h2 id=&quot;insights&quot;&gt;Insights&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Streaming does not necessarily benefit from BSP model.&lt;/li&gt;
-&lt;li&gt;Removing barriers, when possible, can improve performance, reduce the impact of stragglers.&lt;/li&gt;
+  &lt;li&gt;Streaming does not necessarily benefit from BSP model.&lt;/li&gt;
+  &lt;li&gt;Removing barriers, when possible, can improve performance, reduce the impact of stragglers.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Trade-Offs&lt;/h2&gt;
-
+&lt;h2 id=&quot;trade-offs&quot;&gt;Trade-Offs&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Fundamentally, removal of barriers necessitates state in the nodes. The addition of state means
-
-&lt;ul&gt;
-&lt;li&gt;The usual mechanism for fault tolerance do not work.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Adding a weaker programming model allows faster code, while increasing the complexity of applications.&lt;/li&gt;
+  &lt;li&gt;Fundamentally, removal of barriers necessitates state in the nodes. The addition of state means
+    &lt;ul&gt;
+      &lt;li&gt;The usual mechanism for fault tolerance do not work.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Adding a weaker programming model allows faster code, while increasing the complexity of applications.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Relevance in 10 years&lt;/h2&gt;
-
+&lt;h2 id=&quot;relevance-in-10-years&quot;&gt;Relevance in 10 years&lt;/h2&gt;
 &lt;p&gt;I think it is a different programming model, it is too complex to really take off, but might inspire simplification and be important in the future.&lt;/p&gt;
 </content>
  </entry>
@@ -171,17 +155,15 @@
    <id>https://apanda.github.com/ivy/paper%20review/2015/09/01/map-reduce-dryad</id>
    <content type="html">&lt;p&gt;MapReduce and Dryad present two different types of abstractions for developing applications that can be used to process large amounts of data in a cluster. MapReduce requires that programmers divide their computation into two phases, which are combined in a specific order. Dryad, in contrast, accepts dataflow graphs as inputs, and requires programmers to provide code run in the vertices.&lt;/p&gt;
 
-&lt;h2&gt;Tradeoffs&lt;/h2&gt;
-
+&lt;h2 id=&quot;tradeoffs&quot;&gt;Tradeoffs&lt;/h2&gt;
 &lt;p&gt;When writing jobs directly, Map Reduce provides a simple abstraction, the use of this abstraction might be suboptimal for some tasks, however it greatly simplifies programmability. Dryad, in contrast, offers more flexibility to the programmer, which might allow for better performance in some cases, but can also makes programming harder. Unsurprisingly, this trade-off has continued to be important, for example compare any of Spark, Impala, etc. to Naiad.&lt;/p&gt;
 
-&lt;h2&gt;Impact&lt;/h2&gt;
-
+&lt;h2 id=&quot;impact&quot;&gt;Impact&lt;/h2&gt;
 &lt;p&gt;Obviously MapReduce has had great impact. In this review I am more interested in looking at what has been true 11 years on:&lt;/p&gt;
 
-&lt;p&gt;For some reason, sometime between 2005-2011, the community decided Map Reduce was a great underlying abstraction on which to build all manner of big data processing tools, e.g., SQL engines (Hive, Shark, ...), high level declarative languages, graph processing, etc. This might not have been true at Google, but is certainly true outside of it. At the same time, the Dryad abstraction was not as well accepted.&lt;/p&gt;
+&lt;p&gt;For some reason, sometime between 2005-2011, the community decided Map Reduce was a great underlying abstraction on which to build all manner of big data processing tools, e.g., SQL engines (Hive, Shark, …), high level declarative languages, graph processing, etc. This might not have been true at Google, but is certainly true outside of it. At the same time, the Dryad abstraction was not as well accepted.&lt;/p&gt;
 
-&lt;p&gt;I think eleven years on, we are starting to realize that while Map Reduce is a great abstraction for programmers it is perhaps not the best machine model for use by other higher level abstraction. This is evidenced by how Spark has been changing, the design of new processing frameworks, etc. Perhaps the next decade belongs to a more general set of underlying execution engine, more similar to Dryad. However, it will not really be visible to users, so the impact is more debatable than MapReduce&amp;#39;s impact.&lt;/p&gt;
+&lt;p&gt;I think eleven years on, we are starting to realize that while Map Reduce is a great abstraction for programmers it is perhaps not the best machine model for use by other higher level abstraction. This is evidenced by how Spark has been changing, the design of new processing frameworks, etc. Perhaps the next decade belongs to a more general set of underlying execution engine, more similar to Dryad. However, it will not really be visible to users, so the impact is more debatable than MapReduce’s impact.&lt;/p&gt;
 </content>
  </entry>
  

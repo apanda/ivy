@@ -39,7 +39,7 @@ The Ivy Main window indicates that a counter example was found with 4 transition
 
 ![BMC violation highlighted]({{ site.url }}/assets/bmc-selected-highlight.png)
 
-As is readily apparent our model is wrong since both node0 and node1 in this example have the same ID. This can be fixed by adding an axiom to the model, which we have done in the file `leader_election_ring.py`. We use this in the next section.
+As is readily apparent our model is wrong since both node0 and node1 in this example have the same ID. This can be fixed by adding an axiom to the model, which we have done in the file `leader_election_ring.ivy`. We use this in the next section.
 
 <a name="inductive"></a>Finding Inductive Invariants for Leader Election
 -----------------------------------------------------------------------------

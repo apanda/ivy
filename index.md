@@ -32,7 +32,7 @@ Let us get started by downloading and starting IVY:
 
 <a name="bmc"></a>Using Bounded Model Checking to Check Models
 ---------------------------------------------------------------
-We begin by looking at a [ring based leader election protocol] (http://cs.ucsb.edu/~hatem/cs271/decentralized-extrema-finding.pdf) previously described by Chang and Roberts.
+We begin by looking at a [ring based leader election protocol](http://cs.ucsb.edu/~hatem/cs271/decentralized-extrema-finding.pdf) previously described by Chang and Roberts.
 In this protocol, each node is assigned a unique ID. Each node sends a message containing its ID to its neighbor.
 Nodes forwards a received message if and only if the ID contained in the message is greater than their own ID.
 Any node which receives its own message is then declared to be the leader.

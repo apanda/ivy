@@ -38,7 +38,7 @@ Click on the run cell button (highlighted in the picture above) to start bounded
 
 ![BMC violation]({{ site.url }}/assets/bmc-start.png)
 
-The Ivy Main window indicates that a counter example was found with 4 transitions (the 0th state is a dummy initial state). Click on state 4 to see the transition resulting in the violation. As shown below, the text box in the Ivy Main window shows the various relations leading up to this violation. We can also use the Transition View Widget to get a more visual representation. To do this click on the + icon in the Transition View Widget (highlighted below), this results in Ivy showing vertices representing all binary relations in the model.
+The Ivy Main window indicates that a counter example was found with 4 transitions (the 0th state is a dummy initial state). Click on state 4 to see the transition resulting in the violation. As shown below, the text box in the Ivy Main window shows the various relations leading up to this violation. We can also use the Transition View Widget to get a more visual representation. To do this click on the + icon in the Transition View Widget (highlighted below), this results in Ivy showing edges representing all binary relations in the model.
 
 ![BMC violation highlighted]({{ site.url }}/assets/bmc-selected-highlight.png)
 
@@ -56,7 +56,7 @@ We then highlight the set of conditions that seem to not fit into the model in t
 
 The problem here is that `node1` has a pending message with its ID, even though its ID is not the highest possible ID. This should be impossible, and we need to strengthen our model with this.
 
-To begin strengthening, select all the arrows and nodes in the left transition window and click Gather Facts to collect all the relations that hold as shown below.
+To begin strengthening, click Gather Facts to collect all the relations that hold as shown below.
 
 ![Gather facts]({{ site.url }}/assets/gatherfacts1.png)
 
@@ -64,7 +64,14 @@ We can now use Bounded Model Checking to reduce these facts to a minimal form, u
 
 ![New conjecture]({{ site.url }}/assets/conjecture1.png)
 
-This conjecture in fact disallows the problem we identified before, and is hence what we wanted. We can now proceed by adding this to our list of conjectures by clicking on the Strengthen button in the Transition View.
+Ivy has found a stronger conjecture which holds after 3 protocol actions.
+The display has switched to a special mode where only the facts (edges and labels) that participate in the minimized conjecture are depicted in the left hand side, and the nodes that participate in the conjecture are highlighted.
+The dashed blue edge indicates an inequality that is part of the minimized conjecture (in normal display mode, inequality is implicit between any two distinct nodes).
+Note that you might get a slightly different (but equivalent) conjecture, where the inequality edge (dashed blue) is between the IDs and not the nodes.
+These two forms are equivalent since each node has a unique ID.
+The minimized conjecture precisely states that a node cannot have a pending message with its own ID, if there is another node with a higher ID.
+This, it correctly generalizes this counterexample to inductiveness.
+We can now proceed by adding this conjecture to our list of conjectures by clicking on the Strengthen button in the Transition View, thus strengthening our candidate inductive invariant.
 
 We can then proceed by again trying to Check Inductiveness. This time Ivy indicates that the previously added conjecture is not inductive as shown below.
 
@@ -74,11 +81,11 @@ The problem is not immediately obvious this time, so we need to also show the `r
 
 ![Added conjecture is not inductive with more relations]({{ site.url }}/assets/ninductive2-more-rel.png)
 
-Now the problem is apparent. Our previous conjecture does not require that messages follow the ring topology. In this case, node1 has received node0's ID, despite the fact that had this message followed the ring topology, it would have not have been received. We can again use Gather Facts and Minimize Conjecture to generate a conjecture corresponding to our observation as shown below.
+Now the problem is apparent. Our previous conjecture does not require that messages follow the ring topology. In this case, node1 has received node0's ID, despite the fact that had this message followed the ring topology, it would not have been received. We can again use Gather Facts and Minimize Conjecture to generate a conjecture corresponding to our observation as shown below.
 
 ![Conjecture 2]({{ site.url }}/assets/conjecture2.png)
 
-Observe that in the previous screenshot, `id0` is unselected and no green edges connect it to a node. This is to indicate that it was not included in the minimized conjecture. The dashed blue edge indicates that `id1` and `id2` are not equal, note that this is a part of the minimized conjecture.
+Observe that in the previous screenshot, `id0` is unselected and no green edges connect it to a node. This is to indicate that it was not included in the minimized conjecture. The dashed blue edge indicates that `id1` and `id2` are not equal, note that this is a part of the minimized conjecture. We proceed by strengthening with this conjecture (click the Strengthen button as before).
 
 We can again check inductiveness, resulting in another case where the previous conjecture is non-inductive because it doesn't account for some of the ring topology. The non-inductive conjecture and the conjecture we add to make it inductive are shown below.
 

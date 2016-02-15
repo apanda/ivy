@@ -6,6 +6,9 @@ Thank you for your interest in Ivy, a tool for interactive verification of syste
 
 <a name="overview"></a>Overview
 -------------------------------
+
+The webpage contains the artifact for the PLDI 2016 [paper about Ivy](http://www.cs.tau.ac.il/~odedp/pldi16-paper228.pdf).
+
 *FIXME*: This is where all the introduction stuff should go
 
 <a name="downloading"></a>Downloading and Getting Started

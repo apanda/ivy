@@ -16,9 +16,9 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T20:08:04-08:00">
-  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T20:08:04-08:00">
-  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T20:08:04-08:00">
+  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T20:40:24-08:00">
+  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T20:40:24-08:00">
+  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T20:40:24-08:00">
   <link href='//fonts.googleapis.com/css?family=Josefin+Slab:400,600,700,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Icons -->
@@ -69,10 +69,19 @@
   <li>Once booted, log into the VM with the username <code class="highlighter-rouge">ivyuser</code> and password <code class="highlighter-rouge">ivy</code>.</li>
   <li>Once logged in start Firefox (you can click on the icon on the left bar).</li>
   <li>Next open a terminal and type <code class="highlighter-rouge">cd ~/ivy/examples/pldi16</code> and hit enter. This will take you to a directory containing several Ivy examples.</li>
-  <li>Finally type <code class="highlighter-rouge">python ../../ivy/ivy2.py leader_election_ring.py</code> and hit enter. This should open a <a href="http://jupyter.org/">Jupyter</a> notebook in Firefox.</li>
+  <li>Finally type <code class="highlighter-rouge">python ../../ivy/ivy2.py leader_election_ring.py</code> and hit enter. This should open a <a href="http://jupyter.org/">Jupyter</a> notebook in Firefox, as shown in the figure below.</li>
 </ol>
 
 <p><img src="https://apanda.github.com/ivy/assets/jupyter.png" alt="Ivy started" /></p>
+
+<h2 id="using-ivy-to-find-inductive-invariants">Using Ivy to Find Inductive Invariants</h2>
+<p>Now that you have launched the Jupyter notebook used by Ivy, it is time to actually begin running Ivy. Begin by running the sheet (the button to do so is highlighted in red above). This should open up two windows as shown below:</p>
+
+<p><img src="https://apanda.github.com/ivy/assets/ivy.png" alt="Ivy window" /></p>
+
+<p>Now you are ready to begin finding an inductive invariant for this system. Begin by clicking Check Inductiveness in the TransitionViewWidget. This should result in a screen shot similar to what is show below, indicating that a conjecture is not inductive.</p>
+
+<p><img src="https://apanda.github.com/ivy/assets/noninductive1.png" alt="Leader ordering is not inductive" /></p>
 
 <div class="footnotes">
   <ol>

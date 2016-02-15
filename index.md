@@ -17,11 +17,15 @@ Let us get started by downloading and starting IVY:
 
 ![Ivy started]({{ site.url }}/assets/jupyter.png)
 
-Using Ivy
----------
+Using Ivy to Find Inductive Invariants
+--------------------------------------
 Now that you have launched the Jupyter notebook used by Ivy, it is time to actually begin running Ivy. Begin by running the sheet (the button to do so is highlighted in red above). This should open up two windows as shown below:
 
 ![Ivy window]({{ site.url }}/assets/ivy.png)
+
+Now you are ready to begin finding an inductive invariant for this system. Begin by clicking Check Inductiveness in the TransitionViewWidget. This should result in a screen shot similar to what is show below, indicating that a conjecture is not inductive.
+
+![Leader ordering is not inductive]({{ site.url }}/assets/noninductive1.png)
 
 
 [^1]: We recommend ensuring that the downloaded file is correct. The SHA sum for the VM archive is ``6d5d6b377f7a95a13507e57209c064080f273829``.

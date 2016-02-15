@@ -17,7 +17,7 @@ Let us get started by downloading and starting IVY:
 
 ![Ivy started]({{ site.url }}/assets/jupyter.png)
 
-Using Ivy to Find Inductive Invariants
+<a name="inductive"></a>Using Ivy to Find Inductive Invariants
 --------------------------------------
 Now that you have launched the Jupyter notebook used by Ivy, it is time to actually begin running Ivy. Begin by running the sheet (the button to do so is highlighted in red above). 
 

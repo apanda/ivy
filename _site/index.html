@@ -16,9 +16,9 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T20:55:54-08:00">
-  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T20:55:54-08:00">
-  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T20:55:54-08:00">
+  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T21:00:08-08:00">
+  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T21:00:08-08:00">
+  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T21:00:08-08:00">
   <link href='//fonts.googleapis.com/css?family=Josefin+Slab:400,600,700,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Icons -->
@@ -87,7 +87,9 @@
 
 <p><img src="https://apanda.github.com/ivy/assets/ninductive-relations.png" alt="Transition for non-inductiveness" /></p>
 
-<p>This indicates that <code class="highlighter-rouge">node1</code> had a pending message when it transitioned to leader, causing this violation. Next select all the arrows and nodes in the left transition window and click Gather Facts to collect all the relations that hold as shown below.</p>
+<p>The problem here is that <code class="highlighter-rouge">node1</code> has a pending message with its ID, even though its ID is not the highest possible ID. This should be impossible, and we need to strengthen our model with this.</p>
+
+<p>To begin strengthening, select all the arrows and nodes in the left transition window and click Gather Facts to collect all the relations that hold as shown below.</p>
 
 <p><img src="https://apanda.github.com/ivy/assets/gatherfacts1.png" alt="Gather facts" /></p>
 

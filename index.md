@@ -31,7 +31,9 @@ We then highlight the set of conditions that seem to not fit into the model in t
 
 ![Transition for non-inductiveness]({{ site.url }}/assets/ninductive-relations.png)
 
-This indicates that ```node1``` had a pending message when it transitioned to leader, causing this violation. Next select all the arrows and nodes in the left transition window and click Gather Facts to collect all the relations that hold as shown below.
+The problem here is that ```node1``` has a pending message with its ID, even though its ID is not the highest possible ID. This should be impossible, and we need to strengthen our model with this.
+
+To begin strengthening, select all the arrows and nodes in the left transition window and click Gather Facts to collect all the relations that hold as shown below.
 
 ![Gather facts]({{ site.url }}/assets/gatherfacts1.png)
 

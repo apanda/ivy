@@ -16,9 +16,9 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T16:48:13-08:00">
-  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T16:48:13-08:00">
-  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T16:48:13-08:00">
+  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T20:04:24-08:00">
+  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T20:04:24-08:00">
+  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T20:04:24-08:00">
   <link href='//fonts.googleapis.com/css?family=Josefin+Slab:400,600,700,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Icons -->
@@ -59,7 +59,7 @@
     <div class="content container">
       <p>Thank you for your interest in Ivy. We provide Ivy as a <a href="https://www.virtualbox.org">VirtualBox</a> <a href="http://www.cs.tau.ac.il/~odedp/ivyvm.tar.bz2">virtual machine</a>. Running our VM requires that at least 2 GB of memory be available.</p>
 
-<p>To get started with Ivy:</p>
+<p>Let us get started by downloading and starting IVY:</p>
 
 <ol>
   <li>Download and install <a href="https://www.virtualbox.org">VirtualBox</a> for your VM.</li>
@@ -67,8 +67,12 @@
   <li>Untar the archive, on Linux and OS X this can be done by running <code class="highlighter-rouge">tar -jxvf ivyvm.tar.bz2</code> in the directory to which you downloaded the archive. On Windows, you can use <a href="http://www.7-zip.org/download.html">7Zip</a> to do so.</li>
   <li>Once untarred, use VirtualBox to open the <code class="highlighter-rouge">ivyvm.vbox</code> file, and start the VM.</li>
   <li>Once booted, log into the VM with the username <code class="highlighter-rouge">ivyuser</code> and password <code class="highlighter-rouge">ivy</code>.</li>
-  <li>Once logged in</li>
+  <li>Once logged in start Firefox (you can click on the icon on the left bar).</li>
+  <li>Next open a terminal and type <code class="highlighter-rouge">cd ~/ivy/examples/pldi16</code> and hit enter. This will take you to a directory containing several Ivy examples.</li>
+  <li>Finally type <code class="highlighter-rouge">python ../../ivy/ivy2.py leader_election_ring.py</code> and hit enter. This should open a <a href="http://jupyter.org/">Jupyter</a> notebook in Firefox.</li>
 </ol>
+
+<p><img src="https://apanda.github.com/ivy/assets/jupyter.png" alt="Ivy started" /></p>
 
 <div class="footnotes">
   <ol>

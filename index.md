@@ -116,5 +116,8 @@ Finally we need to repeat this process one more time to arrive at an inductive i
 The ``~/ivy/examples/pldi16`` directory contains all examples mentioned in the paper.
 The examples contain the full inductive invariants, where the conjectures that were obtained interactively are at the end of the file.
 To try to verify these examples, you can comment out some conjectures, and then go through the interactive verification process.
+Some examples use ternary relations, which require projections to visualize. A ternary relation can be projected by right clicking on a node and clicking an "add ..." button.
+A good place to try out projections is the ``leader_election_ring_btw.ivy`` example, which contains a version of the leader election with a ternary between relation,
+which allows expressing the last 3 conjectures of the plain version with just one conjecture.
 
 <hr />

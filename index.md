@@ -13,7 +13,7 @@ Let us get started by downloading and starting IVY:
 4. Once booted, log into the VM with the username ```ivyuser``` and password ```ivy```.
 5. Once logged in start Firefox (you can click on the icon on the left bar).
 6. Next open a terminal and type ```cd ~/ivy/examples/pldi16``` and hit enter. This will take you to a directory containing several Ivy examples. 
-7. Finally type ```python ../../ivy/ivy2.py leader_election_ring.py``` and hit enter. This should open a [Jupyter](http://jupyter.org/) notebook in Firefox.
+7. Finally type ```python ../../ivy/ivy2.py leader_election_ring.py``` and hit enter. This should open a [Jupyter](http://jupyter.org/) notebook in Firefox, as shown in the figure below.
 
 ![Ivy started]({{ site.url }}/assets/jupyter.png)
 

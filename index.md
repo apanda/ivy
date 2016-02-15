@@ -4,11 +4,11 @@ title: Home
 ---
 Thank you for your interest in Ivy, a tool for interactive verification of systems. Below we provide both a short overview of Ivy and instructions for downloading and using Ivy.
 
-<a href="overview"></a>Overview
+<a name="overview"></a>Overview
 -------------------------------
 *FIXME*: This is where all the introduction stuff should go
 
-<a href="downloading"></a>Downloading and Getting Started
+<a name="downloading"></a>Downloading and Getting Started
 ---------------------------------------------------------
 We provide Ivy as a [VirtualBox](https://www.virtualbox.org) [virtual machine](http://www.cs.tau.ac.il/~odedp/ivyvm.tar.bz2). Running our VM requires that at least 2 GB of memory be available. 
 

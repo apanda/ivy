@@ -55,6 +55,8 @@ Now the problem is apparent. Our previous conjecture does not require that messa
 
 ![Conjecture 2]({{ site.url }}/assets/conjecture2.png)
 
+Observe that in the previous screenshot, `id0` is unselected and no green edges connect it to a node. This is to indicate that it was not included in the minimized conjecture.
+
 We can again check inductiveness, resulting in another case where the previous conjecture is non-inductive because it doesn't account for some of the ring topology. The non-inductive conjecture and the conjecture we add to make it inductive are shown below.
 
 ![Added conjecture is not inductive]({{ site.url }}/assets/ninductive3.png)

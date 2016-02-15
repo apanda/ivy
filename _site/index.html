@@ -16,9 +16,9 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T21:00:08-08:00">
-  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T21:00:08-08:00">
-  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T21:00:08-08:00">
+  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T21:20:11-08:00">
+  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T21:20:11-08:00">
+  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T21:20:11-08:00">
   <link href='//fonts.googleapis.com/css?family=Josefin+Slab:400,600,700,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Icons -->
@@ -92,6 +92,33 @@
 <p>To begin strengthening, select all the arrows and nodes in the left transition window and click Gather Facts to collect all the relations that hold as shown below.</p>
 
 <p><img src="https://apanda.github.com/ivy/assets/gatherfacts1.png" alt="Gather facts" /></p>
+
+<p>We can now use Bounded Model Checking to reduce these facts to a minimal form, using the Minimize Conjecture function in Ivy. Ivy should then produce a conjecture as shown below.</p>
+
+<p><img src="https://apanda.github.com/ivy/assets/conjecture1.png" alt="New conjecture" /></p>
+
+<p>This conjecture in fact disallows the problem we identified before, and is hence what we wanted. We can now proceed by adding this to our list of conjectures by clicking on the Strengthen button in the Transition View.</p>
+
+<p>We can then proceed by again trying to Check Inductiveness. This time Ivy indicates that the previously added conjecture is not inductive as shown below.</p>
+
+<p><img src="https://apanda.github.com/ivy/assets/ninductive2.png" alt="Added conjecture is not inductive" /></p>
+
+<p>The problem is not immediately obvious this time, so we need to also show the <code class="highlighter-rouge">ring.le</code> relation, which corresponds with ring topology as shown below.</p>
+
+<p><img src="https://apanda.github.com/ivy/assets/ninductive2-more-rel.png" alt="Added conjecture is not inductive with more relations" /></p>
+
+<p>Now the problem is apparent. Our previous conjecture does not require that messages follow the ring topology. In this case, node1 has received node0’s ID, despite the fact that had this message followed the ring topology, it would have not have been received. We can again use Gather Facts and Minimize Conjecture to generate a conjecture corresponding to our observation as shown below.</p>
+
+<p><img src="https://apanda.github.com/ivy/assets/conjecture2.png" alt="Conjecture 2" /></p>
+
+<p>We can again check inductiveness, resulting in another case where the previous conjecture is non-inductive because it doesn’t account for some of the ring topology. The non-inductive conjecture and the conjecture we add to make it inductive are shown below.</p>
+
+<p><img src="https://apanda.github.com/ivy/assets/ninductive3.png" alt="Added conjecture is not inductive" />
+<img src="https://apanda.github.com/ivy/assets/conjecture3.png" alt="Conjecture 3" /></p>
+
+<p>Finally we need to repeat this process one more time to arrive at an inductive invariant that can be used to prove correctness for this system. When inductive invariants are found Ivy informs as shown below.</p>
+
+<p><img src="https://apanda.github.com/ivy/assets/inductive1.png" alt="Inductive invariants found" /></p>
 
 <div class="footnotes">
   <ol>

@@ -37,7 +37,32 @@ To begin strengthening, select all the arrows and nodes in the left transition w
 
 ![Gather facts]({{ site.url }}/assets/gatherfacts1.png)
 
+We can now use Bounded Model Checking to reduce these facts to a minimal form, using the Minimize Conjecture function in Ivy. Ivy should then produce a conjecture as shown below.
 
+![New conjecture]({{ site.url }}/assets/conjecture1.png)
+
+This conjecture in fact disallows the problem we identified before, and is hence what we wanted. We can now proceed by adding this to our list of conjectures by clicking on the Strengthen button in the Transition View.
+
+We can then proceed by again trying to Check Inductiveness. This time Ivy indicates that the previously added conjecture is not inductive as shown below.
+
+![Added conjecture is not inductive]({{ site.url }}/assets/ninductive2.png)
+
+The problem is not immediately obvious this time, so we need to also show the ```ring.le``` relation, which corresponds with ring topology as shown below.
+
+![Added conjecture is not inductive with more relations]({{ site.url }}/assets/ninductive2-more-rel.png)
+
+Now the problem is apparent. Our previous conjecture does not require that messages follow the ring topology. In this case, node1 has received node0's ID, despite the fact that had this message followed the ring topology, it would have not have been received. We can again use Gather Facts and Minimize Conjecture to generate a conjecture corresponding to our observation as shown below.
+
+![Conjecture 2]({{ site.url }}/assets/conjecture2.png)
+
+We can again check inductiveness, resulting in another case where the previous conjecture is non-inductive because it doesn't account for some of the ring topology. The non-inductive conjecture and the conjecture we add to make it inductive are shown below.
+
+![Added conjecture is not inductive]({{ site.url }}/assets/ninductive3.png)
+![Conjecture 3]({{ site.url }}/assets/conjecture3.png)
+
+Finally we need to repeat this process one more time to arrive at an inductive invariant that can be used to prove correctness for this system. When inductive invariants are found Ivy informs as shown below.
+
+![Inductive invariants found]({{ site.url }}/assets/inductive1.png)
 
 
 [^1]: We recommend ensuring that the downloaded file is correct. The SHA sum for the VM archive is ``6d5d6b377f7a95a13507e57209c064080f273829``.

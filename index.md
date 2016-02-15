@@ -4,7 +4,7 @@ title: Home
 ---
 Thank you for your interest in Ivy. We provide Ivy as a [VirtualBox](https://www.virtualbox.org) [virtual machine](http://www.cs.tau.ac.il/~odedp/ivyvm.tar.bz2). Running our VM requires that at least 2 GB of memory be available. 
 
-To get started with Ivy:
+Let us get started by downloading and starting IVY:
 
 1. Download and install [VirtualBox](https://www.virtualbox.org) for your VM.
 2. Download[^1] the [VM](http://www.cs.tau.ac.il/~odedp/ivyvm.tar.bz2) archive.

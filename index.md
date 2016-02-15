@@ -4,6 +4,8 @@ title: Home
 ---
 Thank you for your interest in Ivy. We provide Ivy as a [VirtualBox](https://www.virtualbox.org) [virtual machine](http://www.cs.tau.ac.il/~odedp/ivyvm.tar.bz2). Running our VM requires that at least 2 GB of memory be available. 
 
+<a href="downloading"></a>Downloading and Getting Started
+---------------------------------------------------------
 Let us get started by downloading and starting IVY:
 
 1. Download and install [VirtualBox](https://www.virtualbox.org) for your VM.
@@ -13,17 +15,28 @@ Let us get started by downloading and starting IVY:
 4. Once booted, log into the VM with the username `ivyuser` and password `ivy`.
 5. Once logged in start Firefox (you can click on the icon on the left bar).
 6. Next open a terminal and type `cd ~/ivy/examples/pldi16` and hit enter. This will take you to a directory containing several Ivy examples. 
-7. Finally type `python ../../ivy/ivy2.py leader_election_ring.py` and hit enter. This should open a [Jupyter](http://jupyter.org/) notebook in Firefox, as shown in the figure below.
 
-![Ivy started]({{ site.url }}/assets/jupyter.png)
+<a name="bmc"></a>Using Bounded Model Checking to Check Models
+---------------------------------------------------------------
+We begin by looking at a [ring based leader election protocol] (http://cs.ucsb.edu/~hatem/cs271/decentralized-extrema-finding.pdf) previous described by Chang and Roberts. In this protocol, each node is assigned a unique ID. Each node sends a message containing its ID to its neighbor. Nodes forwards a received message if and only if the ID contained in the message is greater than their own ID. Any node which receives its own message is then declared to be the leader.  In this example we check two conjectures: (1) exactly one node considers itself the leader, and (2) the leader has the highest ID in the ring.
 
-<a name="inductive"></a>Using Ivy to Find Inductive Invariants
---------------------------------------
-Now that you have launched the Jupyter notebook used by Ivy, it is time to actually begin running Ivy. Begin by running the sheet (the button to do so is highlighted in red above). 
+We begin by looking at how Ivy can be used during the specification phase. For this demonstration we have included a buggy version of the specification, where we do not require nodes to have unique IDs. This of course breaks the leader election protocol. To see how Ivy's bounded model checking can help with this run `python ../../ivy/ivy_bmc.py leader_election_ring_bug.py` in the previously opened terminal window. This should result in a [Jupyter](http://jupyter.org/) notebook opening in Firefox as shown below.
 
-Now you are ready to begin finding an inductive invariant for this system. For this example we are going to be considering a [ring based leader election protocol](http://cs.ucsb.edu/~hatem/cs271/decentralized-extrema-finding.pdf) previous described by Chang and Roberts. In this protocol, each node is assigned a unique ID. Each node sends a message containing its ID to its neighbor. Nodes forwards a received message if and only if the ID contained in the message is greater than their own ID. Any node which receives its own message is then declared to be the leader.  In this example we check two conjectures: (1) exactly one node considers itself the leader, and (2) the leader has the highest ID in the ring.
+![Ivy started]({{ site.url }}/assets/bmc-highlighted.png)
 
-We begin by clicking Check Inductiveness in the TransitionViewWidget to check if both these axioms are inductive. This should result in a screen shot similar to what is show below, indicating that conjecture 2 is not inductive.
+Click on the run cell button (highlighted in the picture above) to start bounded model checking. This will shortly produce a violation as shown below
+
+![BMC violation]({{ site.url }}/assets/bmc-start.png)
+
+The Ivy Main window indicates that a counter example was found with 4 transitions (the 0th state is a dummy initial state). Click on state 4 to see the transition resulting in the violation. As shown below, the text box in the Ivy Main window shows the various relations leading up to this violation. We can also use the Transition View Widget to get a more visual representation. To do this click on the + icon in the Transition View Widget (highlighted below), this results in Ivy showing vertices representing all binary relations in the model.
+
+![BMC violation highlighted]({{ site.url }}/assets/bmc-selected-highlight.png)
+
+As is readily apparent our model is wrong since both node0 and node1 in this example have the same ID. This can be fixed by adding an axiom to the model, which we have done in the file `leader_election_ring.py`. We use this in the next section.
+
+<a name="inductive"></a>Finding Inductive Invariants for Leader Election
+-----------------------------------------------------------------------------
+Now that we have a correct model, it is time to get inductive invariants for this system. To do this start by killing (using `ctrl-c`) the previous Jupyter session, and run `python ../../ivy/ivy2.py leader_election_ring.ivy`. This will again result in a Jupyter notebook opening. Once the notebook is open run the cell, this will again result in two windows: Ivy Main and Transition View Widget. We start by checking if our model is already inductive, to do this click the "Check Inductiveness" button in the Transition View Widget. This will result in Ivy finding a counter example showing that the invariants are not inductive, as shown below.
 
 ![Leader ordering is not inductive]({{ site.url }}/assets/noninductive1.png)
 
@@ -65,6 +78,9 @@ We can again check inductiveness, resulting in another case where the previous c
 Finally we need to repeat this process one more time to arrive at an inductive invariant that can be used to prove correctness for this system. When inductive invariants are found Ivy informs as shown below.
 
 ![Inductive invariants found]({{ site.url }}/assets/inductive1.png)
+
+<a name="lswitch"></a>Finding Inductive Invariants for Learning Switch
+-----------------------------------------------------------------------------
 
 <hr />
 

@@ -16,9 +16,9 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T20:54:51-08:00">
-  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T20:54:51-08:00">
-  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T20:54:51-08:00">
+  <link rel="stylesheet" href="public/css/poole.css?2016-02-14T20:55:54-08:00">
+  <link rel="stylesheet" href="public/css/syntax.css?2016-02-14T20:55:54-08:00">
+  <link rel="stylesheet" href="public/css/hyde.css?2016-02-14T20:55:54-08:00">
   <link href='//fonts.googleapis.com/css?family=Josefin+Slab:400,600,700,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Icons -->
@@ -75,9 +75,7 @@
 <p><img src="https://apanda.github.com/ivy/assets/jupyter.png" alt="Ivy started" /></p>
 
 <h2 id="using-ivy-to-find-inductive-invariants">Using Ivy to Find Inductive Invariants</h2>
-<p>Now that you have launched the Jupyter notebook used by Ivy, it is time to actually begin running Ivy. Begin by running the sheet (the button to do so is highlighted in red above). This should open up two windows as shown below:</p>
-
-<p><img src="https://apanda.github.com/ivy/assets/ivy.png" alt="Ivy window" /></p>
+<p>Now that you have launched the Jupyter notebook used by Ivy, it is time to actually begin running Ivy. Begin by running the sheet (the button to do so is highlighted in red above).</p>
 
 <p>Now you are ready to begin finding an inductive invariant for this system. For this example we are going to be considering a <a href="http://cs.ucsb.edu/~hatem/cs271/decentralized-extrema-finding.pdf">ring based leader election protocol</a> previous described by Chang and Roberts. In this protocol, each node is assigned a unique ID. Each node sends a message containing its ID to its neighbor. Nodes forwards a received message if and only if the ID contained in the message is greater than their own ID. Any node which receives its own message is then declared to be the leader.  In this example we check two conjectures: (1) exactly one node considers itself the leader, and (2) the leader has the highest ID in the ring.</p>
 

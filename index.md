@@ -19,9 +19,7 @@ Let us get started by downloading and starting IVY:
 
 Using Ivy to Find Inductive Invariants
 --------------------------------------
-Now that you have launched the Jupyter notebook used by Ivy, it is time to actually begin running Ivy. Begin by running the sheet (the button to do so is highlighted in red above). This should open up two windows as shown below:
-
-![Ivy window]({{ site.url }}/assets/ivy.png)
+Now that you have launched the Jupyter notebook used by Ivy, it is time to actually begin running Ivy. Begin by running the sheet (the button to do so is highlighted in red above). 
 
 Now you are ready to begin finding an inductive invariant for this system. For this example we are going to be considering a [ring based leader election protocol](http://cs.ucsb.edu/~hatem/cs271/decentralized-extrema-finding.pdf) previous described by Chang and Roberts. In this protocol, each node is assigned a unique ID. Each node sends a message containing its ID to its neighbor. Nodes forwards a received message if and only if the ID contained in the message is greater than their own ID. Any node which receives its own message is then declared to be the leader.  In this example we check two conjectures: (1) exactly one node considers itself the leader, and (2) the leader has the highest ID in the ring.
 

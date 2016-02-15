@@ -4,7 +4,6 @@ highlighter:      rouge
 
 gems:
    - jekyll-coffeescript
-   - jekyll-paginate
 # Permalinks
 #permalink:        pretty
 #relative_permalinks: true
@@ -19,8 +18,6 @@ baseurl:          /
 author:
   name:           'Oded Padon'
   url:             ''
-
-paginate:         5
 
 # Custom vars
 version:          2.1.0

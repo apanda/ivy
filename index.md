@@ -84,8 +84,8 @@ The dashed blue edge indicates an inequality that is part of the minimized conje
 Note that you might get a slightly different (but equivalent) conjecture, where the inequality edge (dashed blue) is between the IDs and not the nodes.
 These two forms are equivalent since each node has a unique ID.
 The minimized conjecture precisely states that a node cannot have a pending message with its own ID, if there is another node with a higher ID.
-This, it correctly generalizes this counterexample to inductiveness.
-We can now proceed by adding this conjecture to our list of conjectures by clicking on the Strengthen button in the Transition View, thus strengthening our candidate inductive invariant.
+Therefore, Ivy correctly generalizes this counterexample to inductiveness.
+We can now proceed by adding this conjecture to our list of conjectures by clicking on the Strengthen button in the Transition View.
 
 We can then proceed by again trying to Check Inductiveness. This time Ivy indicates that the previously added conjecture is not inductive as shown below.
 

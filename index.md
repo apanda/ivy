@@ -2,14 +2,15 @@
 layout: default
 title: Home
 ---
-Thank you for your interest in Ivy, a tool for interactive verification of systems. Below we provide both a short overview of Ivy and instructions for downloading and using Ivy.
 
 <a name="overview"></a>Overview
 -------------------------------
 
-The webpage contains the artifact for the PLDI 2016 [paper about Ivy](http://www.cs.tau.ac.il/~odedp/pldi16-paper228.pdf), a system for interactive verification.
+Thank you for your interest in Ivy, a tool for interactive verification of systems.
 
-Below, you will find instructions on how to download a VM that contains Ivy, and a walk-through of the running example from the paper - verifying a simple leader election protocol.
+This webpage contains the artifact for the PLDI 2016 [paper about Ivy](http://www.cs.tau.ac.il/~odedp/pldi16-paper228.pdf), that describes the ideas and methodology behind Ivy.
+
+Below, you will find instructions on how to download a VM that contains Ivy, and a walk-through of the running example from the paper --- verifying a simple leader election protocol.
 The VM also contains all other examples mentioned in the paper (under the directory ``~/ivy/examples/pldi16``).
 
 The paper describes a basic language called RML. The actual examples are written in Ivy's modeling language, 

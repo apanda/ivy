@@ -6,7 +6,7 @@ Thank you for your interest in Ivy, a tool for interactive verification of syste
 
 <a href="overview"></a>Overview
 -------------------------------
-*FIXME*: This is where all the introduction stuff should go.
+*FIXME*: This is where all the introduction stuff should go
 
 <a href="downloading"></a>Downloading and Getting Started
 ---------------------------------------------------------
